@@ -1,0 +1,24 @@
+
+
+<div class="container"> 
+  <div class="row">
+  <form action="" class="form-group col-sm-12">
+    <input type="text" class="form-control" placeholder="Enter new post"
+    (keyup.enter)="createPost(title)" #title>
+  </form>
+  </div>
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let post of allPosts">
+    <div class="card" [class.isRead]="post.isRead" >
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h4 class="card-title">{{post.title}}</h4>
+          <p class="card-text"> {{post.body}}</p>
+          <button class="btn btn-outline-info" (click)="updatePost(post)">Read</button>
+          <button class="btn btn-outline-danger" (click)="deletePost(post)">Delete</button>
+          <a href='http://jsonplaceholder.typicode.com/users/' class="btn btn-primary"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
